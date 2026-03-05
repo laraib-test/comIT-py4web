@@ -17,7 +17,10 @@
 
 raw_input = "   alice   johnson  "
 # your code here
-
+cleaned=raw_input.strip()
+cleaned=cleaned.title()
+cleaned=cleaned.replace(" "," ")
+print(cleaned)
 
 # --------------------------------------------------------------
 # Challenge 2 — Username Validator
@@ -33,6 +36,8 @@ raw_input = "   alice   johnson  "
 
 def is_valid_username(username):
     pass  # your code here
+
+4<=len(is_valid_username) <=16 and is_valid_username.isalnum()and is_valid_username[0].isalpha()and is_valid_username.islower()
 
 print(is_valid_username("alice"))       # True
 print(is_valid_username("Alice"))       # False — uppercase
@@ -171,10 +176,7 @@ def compress(s):
 
 print(compress("aabbccddaa"))    # "a2b2c2d2a2"
 print(compress("aaabba"))        # "a3b2a1"
-print(compress("abcd"))          # "abcd" — compressed is not shorter
-
-
-# ============================================================
+print(compress("abcd"))          # "abcd" — compressed is # ============================================================
 # BONUS TIPS
 # - Strings are immutable — every method returns a NEW string.
 #   Doing s.upper() does nothing unless you assign the result.
