@@ -48,3 +48,33 @@ def is_valid_username(username):
 
 divisor()
 tests(is_valid_username)
+
+
+def is_valid_username_2(username):
+    return (len(username )>= 4
+            and len(username) <= 16 
+            and username.isalnum() 
+            and username[0].isalpha() 
+            and username.islower())
+    
+divisor()
+tests(is_valid_username_2)
+
+
+
+def is_valid_username_3(username):
+    if len(username) < 4:
+        return False
+    if len(username) > 16:
+        return False
+    if not username.isalnum():
+        return False
+    if not username[0].isalpha():
+        return False
+    if not username.islower():
+        return False
+    
+    return True    
+
+divisor()
+tests(is_valid_username_3)
