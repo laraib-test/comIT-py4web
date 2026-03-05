@@ -17,10 +17,7 @@
 
 raw_input = "   alice   johnson  "
 # your code here
-cleaned=raw_input.strip()
-cleaned=cleaned.title()
-cleaned=cleaned.replace(" "," ")
-print(cleaned)
+
 
 # --------------------------------------------------------------
 # Challenge 2 — Username Validator
@@ -35,7 +32,16 @@ print(cleaned)
 # --------------------------------------------------------------
 
 def is_valid_username(username):
-    pass  # your code here
+    if 4 <= len(username) <= 16:
+        username = username
+    elif username.isalnum():
+        username = username
+    elif username[0].isalpha():
+        username = username
+    elif username.islower():
+        return True
+    else:
+        return False
 
 4<=len(is_valid_username) <=16 and is_valid_username.isalnum()and is_valid_username[0].isalpha()and is_valid_username.islower()
 
