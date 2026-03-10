@@ -2,16 +2,17 @@
 # Author: y44k0v
 
 html_base = ""
+# Read template HTML
 
 with open("garbage.html", "r") as website:
     html_base = website.read()
     
-
-page_title = "MY Python Website"
+# Page title
+page_title = "Modern Apparel"
 
 html_modified = html_base.replace("<title>Document", f"<title>{page_title}") 
 
-# print(html_modified)
+# daisy UI libraries
 
 daisy_ui ="""
 
@@ -25,17 +26,22 @@ daisy_ui ="""
 
 html_modified = html_modified.replace("</head>", daisy_ui +"\n</head>" )
 
-theme = "cyberpunk"
+theme = "retro"
 html_modified = html_modified.replace('<html lang="en">', f'<html lang="en" data-theme="{theme}">')
 
+#Navbar
 nav_bar = """
 <div class="navbar bg-base-100 shadow-sm">
-  <a class="btn btn-ghost text-xl">daisyUI</a>
+  <a class="btn btn-ghost text-xl">Modern Apparel</a>
 </div>
 """
 
 
 html_modified = html_modified.replace('<body>', '<body>\n'+nav_bar)
+
+
+
+
 
 with open("index.html", "w") as file:
     file.write(html_modified)
