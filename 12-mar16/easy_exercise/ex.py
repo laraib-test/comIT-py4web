@@ -90,15 +90,21 @@ class Restaurant(Place):
     
     def __init__(self, name, latitude, longitude, food_type):
         # TODO: Call the parent constructor
+        super().__init__(name, latitude, longitude)
         # TODO: Store food_type as an attribute
-        pass
+        self.food_type = food_type
     
     # TODO: Override get_popup_text()
-    # Should return: "<b>RESTAURANT: name</b><br>Food: food_type"
+    def get_popup_text(self):
+        return f"<b>RESTAURANT: {self.name}</b><br>Food: {self.food_type}"
     
     # TODO: Override get_marker_color()
     # Should return: "red"
-
+    def get_marker_color(self):
+        return super().get_marker_color() 
+    # Should return: "red"
+    def get_marker_color(self):
+        return "red"
 
 class Park(Place):
     """
@@ -112,15 +118,20 @@ class Park(Place):
     
     def __init__(self, name, latitude, longitude, has_playground):
         # TODO: Call the parent constructor
+        super().__init__(name, latitude, longitude)
         # TODO: Store has_playground as an attribute
-        pass
+        self.has_playground = has_playground
     
     # TODO: Override get_popup_text()
     # Should include playground info: "Playground: Yes/No"
+    def get_popup_text(self):
+        playground_text = "Yes" if self.has_playground else "No"
+        return f"<b>PARK: {self.name}</b><br>Playground: {playground_text}"
     
     # TODO: Override get_marker_color()
     # Should return: "green"
-
+    def get_marker_color(self):
+        return "green"
 
 class Museum(Place):
     """
@@ -133,17 +144,21 @@ class Museum(Place):
     """
     
     def __init__(self, name, latitude, longitude, entry_fee):
+        def __init__(self, name, latitude, longitude, entry_fee):
         # TODO: Call the parent constructor
+         super().__init__(name, latitude, longitude)
         # TODO: Store entry_fee as an attribute
-        pass
+        self.entry_fee = entry_fee
     
     # TODO: Override get_popup_text()
     # Should include: "Entry: €X"
+    def get_popup_text(self):
+        return f"<b>MUSEUM: {self.name}</b><br>Entry: €{self.entry_fee}"
     
     # TODO: Override get_marker_color()
     # Should return: "purple"
-
-
+def get_marker_color(self):
+   return "purple"
 # ============================================================================
 # PART 3: MAP CLASS - More Encapsulation
 # ============================================================================
@@ -237,12 +252,21 @@ def create_my_places():
     # TODO: Add at least 2 restaurants
     # Example: Restaurant("Pizza Hut", 40.7128, -74.0060, "Italian")
     # restaurants = [...]
-    
+    places.append(Restaurant("Pizza Hut", 40.7128, -74.0060, "Italian"))
+    places.append(Restaurant("Sushi Place", 35.6762, 139.6503, "Japanese"))
+    places.append(Restaurant("Cafe Paris", 48.8566, 2.3522, "French"))
+    places.append(Restaurant("Taco Bell", 34.0522, -118.2437, "Mexican"))
+    places.append(Restaurant("Burger King", 51.5074, -0.1278, "American"))
+    places.append(Restaurant("Pasta House", 41.9028, 12.4964, "Italian"))
+    places.append(Restaurant("Curry Corner", 28.6139, 77.2090, "Indian"))
     # TODO: Add at least 2 parks
     # parks = [...]
+    places.append(Park("Central Park", 40.7851, -73.9683, True))
+    places.append(Park("Hyde Park", 51.5073, -0.1657, False))
     
     # TODO: Add at least 1 museum
     # museums = [...]
+    places.append(Museum("Louvre Museum", 48.8606, 2.3376, 17))
     
     # Combine all places
     # places.extend(restaurants)
@@ -268,13 +292,14 @@ def main():
     
     # TODO 1: Choose a city
     # Available: Paris, London, New York, Tokyo
-    my_city = "Paris"  # Change this to your favorite city
+    my_city = "London"  # Change this to your favorite city
     
     # Create a map
     mymap = MyMap(my_city)
     
     # TODO 2: Get your places
     # my_places = create_my_places()
+
     
     # For now, let's use some sample places (replace with your own!)
     print("\n📝 Using sample places (TODO: Replace with your favorites!)")
@@ -284,12 +309,15 @@ def main():
     louvre = Museum("Louvre Museum", 48.8606, 2.3376, 17)
     cafe = Restaurant("Cafe Paris", 48.8566, 2.3522, "French")
     park = Park("Luxembourg Garden", 48.8462, 2.3372, True)
-    
+    cafe2 = Restaurant("Cafe de Flore", 48.8556, 2.3331, "French")
+    park2 = Park("Tuileries Garden", 48.8635, 2.3270, False)    
     # TODO 3: Add all places to the map
     mymap.add_place(eiffel_tower)
     mymap.add_place(louvre)
     mymap.add_place(cafe)
     mymap.add_place(park)
+    mymap.add_place(cafe2)
+    mymap.add_place(park2)
     
     # TODO 4: Show distances between places
     mymap.show_distances()
