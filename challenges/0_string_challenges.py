@@ -3,7 +3,8 @@
 # Practice each one before reading the hint!
 # Hints are at the bottom of the file.
 # ============================================================
-
+def divider(ex_number):
+    print("\n",f"Challenge {ex_number}".center(26,"*"), "\n")
 
 # --------------------------------------------------------------
 # Challenge 1 — Clean the Input
@@ -14,6 +15,7 @@
 # Print the final result.
 # Methods: strip(), title(), replace()
 # --------------------------------------------------------------
+divider(1)
 
 raw_input = "   alice   johnson  "
 # your code here
@@ -30,18 +32,15 @@ raw_input = "   alice   johnson  "
 # Test it with at least four different usernames.
 # Methods: isalnum(), isalpha(), islower(), len()
 # --------------------------------------------------------------
+divider(2)
 
 def is_valid_username(username):
     if 4 <= len(username) <= 16:
-        username = username
-    elif username.isalnum():
-        username = username
-    elif username[0].isalpha():
-        username = username
-    elif username.islower():
-        return True
-    else:
-        return False
+        if username.isalnum():
+            if username[0].isalpha():
+                if username.islower():
+                    return True
+    return False
 
 4<=len(is_valid_username) <=16 and is_valid_username.isalnum()and is_valid_username[0].isalpha()and is_valid_username.islower()
 
@@ -58,10 +57,17 @@ print(is_valid_username("ab"))          # False — too short
 # Print each word and its count, sorted alphabetically.
 # Methods: lower(), split(), get()
 # --------------------------------------------------------------
+divider(3)
 
 sentence = "the cat sat on the mat and the cat sat again"
-# your code here
 
+word_freq = {}
+for word in sentence.split():
+    word_freq[word] = word_freq.get(word, 0) + 1
+
+print(word_freq)
+sorted_words = sorted(list(word_freq))
+print(sorted_words)
 
 # --------------------------------------------------------------
 # Challenge 4 — CSV Row Parser
@@ -73,10 +79,21 @@ sentence = "the cat sat on the mat and the cat sat again"
 # Print the final list.
 # Methods: split(), strip(), isdigit()
 # --------------------------------------------------------------
+divider(4)
 
 csv_row = "Alice , 30 , Toronto ,  developer , 95000"
-# your code here
+row_list =  [v.strip() for v in csv_row.split(",")]
+print(row_list)
+final_row_list = []
 
+for element in row_list:
+    column = element.strip()
+    if column.isdigit():
+        final_row_list.append(int(column))
+    else:
+        final_row_list.append(column)    
+
+print(final_row_list)
 
 # --------------------------------------------------------------
 # Challenge 5 — Title Slug Generator
@@ -89,9 +106,15 @@ csv_row = "Alice , 30 , Toronto ,  developer , 95000"
 # Example: "  Hello, World! " -> "hello-world"
 # Methods: lower(), strip(), replace(), join(), isalnum()
 # --------------------------------------------------------------
+divider(5)
 
-def slugify(title):
-    pass  # your code here
+def slugify(title: str):
+    slug = title.lower()
+    slug = slug.strip()
+    slug = slug.replace(" ", "-")
+    slug = "".join(char for char in slug if char.isalnum() or char == "-")
+    
+    return slug
 
 print(slugify("  Hello, World!  "))         # "hello-world"
 print(slugify("Python 3.12 -- What's New")) # "python-312--whats-new"
@@ -106,6 +129,7 @@ print(slugify("  Top 10 Tips & Tricks  "))  # "top-10-tips--tricks"
 # Add a header row and a separator line of dashes.
 # Methods: ljust(), rjust(), or f-string format spec
 # --------------------------------------------------------------
+divider(6)
 
 results = [
     ("Alice",   95),
@@ -113,7 +137,12 @@ results = [
     ("Charlie", 100),
     ("Diana",   78),
 ]
-# your code here
+
+print(f"{"Name".ljust(12)}{"Score".rjust(6)}")
+print("-" * 18)
+for score in results:
+    print(f"{score[0].ljust(12)}{str(score[1]).rjust(6)}")
+
 
 
 # --------------------------------------------------------------
@@ -124,9 +153,10 @@ results = [
 # Print the extracted email.
 # Methods: find(), rfind(), rpartition(), partition()
 # --------------------------------------------------------------
-
+# Challenge 7:  Find the "@" with find(); then slice left with rfind(" ") and right with find(" ", idx).
+divider(7)
 text = "Please contact support at help.desk@example.com for assistance."
-# your code here
+index_at = text.find("@")
 
 
 # --------------------------------------------------------------
@@ -136,9 +166,11 @@ text = "Please contact support at help.desk@example.com for assistance."
 # punctuation. Test it with the phrases below.
 # Methods: lower(), isalnum(), join(), slicing [::-1]
 # --------------------------------------------------------------
+divider(8)
 
 def is_palindrome(text):
-    pass  # your code here
+    pal_str = text.lower().replace(" ", "")
+    return pal_str == pal_str[::-1]
 
 print(is_palindrome("racecar"))                   # True
 print(is_palindrome("A man a plan a canal Panama")) # True
@@ -157,6 +189,7 @@ print(is_palindrome("Was it a car or a cat I saw")) # True
 # Print the completed report.
 # Concept: f-string format spec, :< :> :. :, :%
 # --------------------------------------------------------------
+divider(9)
 
 student   = "Charlie"
 score     = 432.7
@@ -176,6 +209,7 @@ total_students = 1_284
 # return the original unchanged.
 # Methods: string building with join(), len()
 # --------------------------------------------------------------
+divider(10)
 
 def compress(s):
     pass  # your code here
