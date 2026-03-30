@@ -144,11 +144,11 @@ class Museum(Place):
     """
     
     def __init__(self, name, latitude, longitude, entry_fee):
-        def __init__(self, name, latitude, longitude, entry_fee):
+      def __init__(self, name, latitude, longitude, entry_fee):
         # TODO: Call the parent constructor
          super().__init__(name, latitude, longitude)
         # TODO: Store entry_fee as an attribute
-        self.entry_fee = entry_fee
+      self.entry_fee = entry_fee
     
     # TODO: Override get_popup_text()
     # Should include: "Entry: €X"
@@ -357,6 +357,5 @@ BONUS CHALLENGE 3: Add markers for YOUR city
 Look up coordinates for your favorite places in YOUR city
 Use Google Maps to find coordinates (right-click on a place)
 """
-
 if __name__ == "__main__":
     main()

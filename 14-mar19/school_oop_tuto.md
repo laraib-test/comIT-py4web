@@ -21,7 +21,7 @@
 
 ## Introduction
 
-Welcome! In this tutorial, you'll learn Object-Oriented Programming (OOP) by building a School Management System. This program will run in the terminal and help you understand:
+Welcome! In this tutorial, you'll learn Object-Oriented Programming (OOP) by building a +School Management System. This program will run in the terminal and help you understand:
 
 - **Classes and Objects** - The building blocks of OOP
 - **Attributes** - Data stored in objects
