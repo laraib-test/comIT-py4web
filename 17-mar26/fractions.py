@@ -2,9 +2,11 @@
 # Arithmetic: + (__add__), - (__sub__), * (__mul__), / (__truediv__)
 # Comparison: == (__eq__), != (__ne__), < (__lt__), > (__gt__)
 
+from math import gcd
+
+
 class Fraction:
     #constructor
-    
     def __init__(self, num, den):
         self.num = num
         self.den = den 
@@ -44,6 +46,15 @@ class Fraction:
     
     def __repr__(self):
         return f"Fraction({self.num}/ {self.den})"
+    
+    def gcd(a, b):
+        while b:
+            a, b = b, a % b
+        return a
+
+    def simplify_fraction(frac):
+        common = gcd(frac.num, frac.den)
+        return Fraction(frac.num // common, frac.den // common)
 
 
 # Example usage
@@ -59,4 +70,5 @@ if __name__ == "__main__":
     print(a != b) 
     print(a < b)
     print(a > b)
-        
+    print(Fraction.simplify_fraction(Fraction(8, 12)))
+    
