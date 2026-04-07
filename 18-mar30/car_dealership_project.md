@@ -476,6 +476,7 @@ from database import (initialize_database, import_cars, add_car, get_all_cars,
                       get_car_by_id, update_car, delete_car, search_cars)
 
 def show_menu():
+    print("Enter car")
     print("\n" + "="*40)
     print("   🚗  CAR DEALERSHIP MANAGER")
     print("="*40)
@@ -545,7 +546,7 @@ Ask for an ID and delete that car, with a confirmation step.
 Ask for a search term, display matching results.
 
 > 💡 **Hints:**
-> - Call `search_cars(keyword)` with whatever the user typed.
+> - Call `search_cars(c )` with whatever the user typed.
 > - Display results the same way as `view_all_cars_flow()`.
 > - Tell the user how many results were found: `f"Found {len(results)} car(s)"`
 
